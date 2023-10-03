@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "password1"
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "password": "password2"
+    }
+  ],
+
+  
+  "buckets": [
+    {
+      "id": 1,
+      "userId": 1,
+      "bucketName": "My Bucket List",
+      "items": [
+        {
+          "id": 1,
+          "title": "Visit Paris",
+          "createdAt": "2023-10-01T12:00:00",
+          "targetDate": "2023-12-31T00:00:00"
+        },
+        {
+          "id": 2,
+          "title": "Learn a new language",
+          "createdAt": "2023-10-02T15:00:00",
+          "targetDate": "2024-06-30T00:00:00"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "bucketName": "Travel Goals",
+      "items": [
+        {
+          "id": 3,
+          "title": "Explore Japan",
+          "createdAt": "2023-10-05T10:30:00",
+          "targetDate": "2024-04-15T00:00:00"
+        }
+      ]
+    }
+  ]
+}
