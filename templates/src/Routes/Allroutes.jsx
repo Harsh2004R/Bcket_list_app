@@ -1,10 +1,10 @@
 import React from 'react'
+import { Routes, Route } from "react-router-dom";
 import Landing from '../Pages/Landing';
 import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import Bucket from '../Pages/Bucket';
 import ValidEmail from '../Components/ValidEmail';
-import { Routes, Route } from "react-router-dom";
 function Allroutes() {
   return (
     <div>

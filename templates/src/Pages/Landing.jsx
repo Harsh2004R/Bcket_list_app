@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
-import "./animation.css"
 function Landing() {
   return (
    <>
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-green-400">
-      <div className="max-w-3xl mx-auto p-8 rounded-lg shadow-lg bg-white">
-        <h1 className="text-4xl font-semibold mb-4 text-center text-gray-800">My Bucket List</h1>
-        <p className="text-xs sm:text-lg md:textlg lg:text-lg xl:text-lg text-justify text-gray-600 mb-3">
+    <div className="min-h-screen flex items-center justify-center " style={{background: 'linear-gradient(to right, #333333, #111111)'}} >
+      <div className="max-w-3xl  mx-auto xs:p-8 xl:p-12 rounded-lg shadow-lg " style={{ backgroundColor: '#232323', boxShadow: "3px 3px #3aa16e, -1em 0 .4em #00a0ff" }}>
+        <h1 className="text-4xl font-semibold mb-4 text-center text-white"><span style={{color:"#3B82F6",fontStyle:"italic" }}>B</span>ucket - <span style={{color:"#22C55E",fontStyle:"italic" }}>W</span>ish</h1>
+        <p className="text-xs sm:text-lg md:textlg lg:text-lg xl:text-lg text-justify text-white mb-3" >
           Explore your dreams, set your goals, and start ticking off your bucket list items.
         </p>
-        <p className="text-lg text-right text-blue-700  mb-3" style={{fontSize:"12px"}}>
+        <p className="text-lg text-right  mb-3" style={{fontSize:"12px",color:"#999"}}>
           -by Harsh Sharma
         </p>
         <div className="flex justify-center">

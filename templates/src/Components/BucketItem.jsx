@@ -1,9 +1,5 @@
-
-
-
-
-
 import React, { useState } from 'react';
+import { FaClock, FaTrash } from 'react-icons/fa'; 
 
 function BucketItem({ item, onRemove, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -47,11 +43,11 @@ function BucketItem({ item, onRemove, onUpdate }) {
           </>
         ) : (
           <>
-            <button onClick={handleEditClick} className="text-blue-500 mr-2">
-              Edit
+            <button onClick={handleEditClick} className=" mr-2 " >
+            <FaClock style={{color:"#009ce0"}}/>
             </button>
             <button onClick={onRemove} className="text-red-500">
-              Remove
+            <FaTrash />
             </button>
           </>
         )}

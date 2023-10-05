@@ -1,18 +1,24 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "user1",
-      "password": "password1"
+      "fullName": "Harsh Sharma",
+      "email": "harshsharmaktm03@gmail.com",
+      "password": "000000",
+      "id": 1
     },
     {
-      "id": 2,
-      "username": "user2",
-      "password": "password2"
+      "fullName": "Harsh Sharma",
+      "email": "harshsharmaktm@gmail.com",
+      "password": "111",
+      "id": 2
+    },
+    {
+      "fullName": "Harsh Sharma",
+      "email": "abcd@gmail.com",
+      "password": "fhgdfshgdfhg",
+      "id": 3
     }
   ],
-
-  
   "buckets": [
     {
       "id": 1,
@@ -30,19 +36,6 @@
           "title": "Learn a new language",
           "createdAt": "2023-10-02T15:00:00",
           "targetDate": "2024-06-30T00:00:00"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "bucketName": "Travel Goals",
-      "items": [
-        {
-          "id": 3,
-          "title": "Explore Japan",
-          "createdAt": "2023-10-05T10:30:00",
-          "targetDate": "2024-04-15T00:00:00"
         }
       ]
     }
