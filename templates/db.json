@@ -4,40 +4,99 @@
       "fullName": "Harsh Sharma",
       "email": "harshsharmaktm03@gmail.com",
       "password": "000000",
-      "id": 1
-    },
-    {
-      "fullName": "Harsh Sharma",
-      "email": "harshsharmaktm@gmail.com",
-      "password": "111",
-      "id": 2
-    },
-    {
-      "fullName": "Harsh Sharma",
-      "email": "abcd@gmail.com",
-      "password": "fhgdfshgdfhg",
-      "id": 3
-    }
-  ],
-  "buckets": [
-    {
       "id": 1,
-      "userId": 1,
-      "bucketName": "My Bucket List",
-      "items": [
-        {
-          "id": 1,
-          "title": "Visit Paris",
-          "createdAt": "2023-10-01T12:00:00",
-          "targetDate": "2023-12-31T00:00:00"
-        },
-        {
-          "id": 2,
-          "title": "Learn a new language",
-          "createdAt": "2023-10-02T15:00:00",
-          "targetDate": "2024-06-30T00:00:00"
-        }
-      ]
+      "bucket": {
+        "Travel": [
+          {
+            "id": 1,
+            "title": "Travel item 1",
+            "createdAt": "2023-10-01T08:00:00",
+            "targetDate": null
+          },
+          {
+            "id": 2,
+            "title": "Travel item 2",
+            "createdAt": "2023-10-02T09:15:00",
+            "targetDate": null
+          }
+        ],
+        "Friends and Family": [
+          {
+            "id": 1,
+            "title": "Travel item 1",
+            "createdAt": "2023-10-01T08:00:00",
+            "targetDate": null
+          },
+          {
+            "id": 2,
+            "title": "Travel item 2",
+            "createdAt": "2023-10-02T09:15:00",
+            "targetDate": null
+          }
+        ],
+        "Love": [
+          {
+            "id": 1,
+            "title": "Travel item 1",
+            "createdAt": "2023-10-01T08:00:00",
+            "targetDate": null
+          },
+          {
+            "id": 2,
+            "title": "Travel item 2",
+            "createdAt": "2023-10-02T09:15:00",
+            "targetDate": null
+          }
+        ],
+        "Entertainment": [
+          {
+            "id": 1,
+            "title": "Travel item 1",
+            "createdAt": "2023-10-01T08:00:00",
+            "targetDate": null
+          },
+          {
+            "id": 2,
+            "title": "Travel item 2",
+            "createdAt": "2023-10-02T09:15:00",
+            "targetDate": null
+          }
+        ],
+        "Self Improvement": [
+          {
+            "id": 1,
+            "title": "Travel item 1",
+            "createdAt": "2023-10-01T08:00:00",
+            "targetDate": null
+          },
+          {
+            "id": 2,
+            "title": "Travel item 2",
+            "createdAt": "2023-10-02T09:15:00",
+            "targetDate": null
+          }
+        ],
+        "Taste & Treats": [
+          {
+            "id": 1,
+            "title": "Travel item 1",
+            "createdAt": "2023-10-01T08:00:00",
+            "targetDate": null
+          },
+          {
+            "id": 2,
+            "title": "",
+            "createdAt": "",
+            "targetDate": null
+          }
+        ]
+      }
+    },
+    {
+      "fullName": "abc",
+      "email": "abc@gmail.com",
+      "password": "123",
+      "id": 2
     }
   ]
 }
