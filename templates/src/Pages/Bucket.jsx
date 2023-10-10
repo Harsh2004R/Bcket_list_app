@@ -1,113 +1,136 @@
 
 
+// import React, { useState, useEffect } from 'react';
+// import BucketItem from "../Components/BucketItem";
+// import axios from 'axios'; // Import axios
+// import { FaPencilAlt, FaClock, FaTrash, FaRegSave,FaArrowRight } from 'react-icons/fa';
+// const Bucket = () => {
+//   const [bucketItem, setBucketItem] = useState('');
+//   const [bucketList, setBucketList] = useState([]);
+//   const [isEditing, setIsEditing] = useState(false);
+//   const [newTargetDate, setNewTargetDate] = useState('');
+//   const [targetDate, setTargetDate] = useState("")
 
-// import React, { useState } from 'react';
-// import BucketItem from '../Components/BucketItem';
-// import { FaPencilAlt, FaCheck } from 'react-icons/fa';
 
-// function Bucket() {
-//   const initialBucketData = {
-//     Travel: [],
-//     'Friends and Family': [],
-//     Love: [],
-//     Entertainment: [],
-//     'Self Improvement': [],
-//     'Taste & Treats': [],
+
+
+
+
+//   const handleEditClick = () => {
+//     setIsEditing(true);
+//     setNewTargetDate('');
 //   };
 
-//   const [bucketData, setBucketData] = useState(initialBucketData);
-//   const [listName, setListName] = useState('Travel');
-//   const [newItem, setNewItem] = useState('');
-//   const [targetDate, setTargetDate] = useState('');
-//   const [isEditingListName, setIsEditingListName] = useState(false);
-
-//   const addItem = () => {
-//     if (newItem.trim() !== '') {
-//       const currentDate = new Date().toLocaleString();
-//       const newItemWithDate = `${newItem} (Added: ${currentDate}, Target: ${targetDate})`;
-
-//       setBucketData((prevData) => ({
-//         ...prevData,
-//         [listName]: [...prevData[listName], newItemWithDate],
-//       }));
-
-//       setNewItem('');
-//       setTargetDate('');
+//   const handleUpdateClick = () => {
+//     if (newTargetDate.trim() !== '') {
+//       onUpdate(newTargetDate);
+//       setIsEditing(false);
+//       setNewTargetDate('');
 //     }
 //   };
 
-//   const removeItem = (category, index) => {
-//     setBucketData((prevData) => ({
-//       ...prevData,
-//       [category]: prevData[category].filter((_, i) => i !== index),
-//     }));
+
+
+
+
+//   const handleInputChange = (e) => {
+//     setBucketItem(e.target.value);
 //   };
 
-//   const updateTargetDate = (category, index, newTargetDate) => {
-//     setBucketData((prevData) => {
-//       const updatedData = { ...prevData };
-//       const item = updatedData[category][index];
-//       const regex = /Target: .*?(?=\))/;
-//       const updatedItem = item.replace(regex, `Target: ${newTargetDate}`);
-//       updatedData[category][index] = updatedItem;
-//       return updatedData;
-//     });
+//   const handleAddItem = () => {
+//     if (bucketItem.trim() !== '') {
+//       setBucketList([...bucketList, bucketItem]);
+//       setBucketItem('');
+
+//     }
 //   };
 
-//   const handleListNameEdit = () => {
-//     setIsEditingListName(true);
+//   const handleRemoveItem = (item) => {
+//     const updatedList = bucketList.filter((el) => el !== item);
+//     setBucketList(updatedList);
+//     // Make a DELETE request to remove the item from the server
+//     const userId = 1;
+//     const endpointUrl = `http://localhost:8080/users/${userId}`;
+//     axios.get(endpointUrl)
+//       .then((response) => {
+//         const existingUser = response.data;
+//         const updatedUser = {
+//           ...existingUser,
+//           bucket: updatedList,
+//         };
+//         return axios.put(endpointUrl, updatedUser);
+//       })
+//       .then((response) => {
+//         console.log('Deleted List:-', response.data.bucket);
+//       })
+//       .catch((error) => {
+//         console.error('Error updating bucket list after item removal:', error);
+//       });
 //   };
 
-//   const handleListNameChange = (e) => {
-//     setListName(e.target.value);
+//   const postBucketList = () => {
+//     const userId = 1;
+//     const endpointUrl = `http://localhost:8080/users/${userId}`;
+//     axios.get(endpointUrl).then((response) => {
+//       const existingUser = response.data;
+//       // Create the updated user object
+//       const updatedUser = {
+//         ...existingUser, // Copy the existing user properties
+//         bucket: bucketList, // Update the bucket property with the new list
+
+//       };
+
+//       // Make a PUT request to update the user's data
+//       return axios.put(endpointUrl, updatedUser);
+
+//     })
+//       .then((response) => {
+//         console.log('Bucket list updated successfully:', response.data.bucket);
+//       })
+//       .catch((error) => {
+//         // Handle error
+//         console.error('Error updating bucket list:', error);
+//       });
 //   };
 
-//   const handleListNameSave = () => {
-//     setIsEditingListName(false);
-//   };
 
-//   const handleTargetDateChange = (e) => {
-//     setTargetDate(e.target.value);
-//   };
+//   useEffect(() => {
 
-//   const allData = JSON.stringify(bucketData, null, 2);
+//     let ID = 1
+//     axios.get(`http://localhost:8080/users/${ID}`).then((response) => {
 
-//   console.log(allData);
+//       setBucketList(response.data.bucket)
+//       // Create the updated user object
+//       console.log(response.data.bucket)
+
+
+//     })
+//       .catch((error) => {
+//         // Handle error
+//         console.error('Error updating bucket list:', error);
+//       });
+//   }, []);
+
+
 
 //   return (
 //     <>
+
+//      <div className="flex h-screen flex-col">
 //       <div className="flex h-auto" style={{ backgroundColor: "#58c991" }}>
-//         {/*header content */}
-//         <div className="xs:w-65% sm:w-65% md:w-60% lg:w-45% xl:w-40% p-4" style={{ backgroundColor: "rgb(0, 156, 224)" }}>
-
+//         {/* Header content */}
+//         <div
+//           className="xs:w-65% sm:w-65% md:w-60% lg:w-45% xl:w-40% p-4"
+//           style={{ backgroundColor: "rgb(0, 156, 224)" }}
+//         >
 //           <h1 className="text-white xs:text-3xl md:text-6xl font-bold">My Bucket List</h1>
-//           <h5></h5>
 //         </div>
-
-
-
 //       </div>
 
-//       <div className=" p-4 w-1/1 mx-auto  shadow-md" style={{ backgroundColor: "#58c991" }}>
-//         {/*select dropdown */}
+//       <div className="p-4 w-full mx-auto shadow-md" style={{ backgroundColor: "#58c991" }}>
+//         {/* Select dropdown */}
 //         <div className="relative">
-
-//           <select
-//             className="appearance-none w-full rounded border-none text-gray-700 py-3 px-4 pr-8  leading-tight focus:outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-900"
-//             id="select"
-//             style={{ backgroundColor: "#fff", fontWeight: "bold", boxShadow: "10px 10px 15px #555555" }}
-//             value={listName}
-//             onChange={handleListNameChange}
-//           >
-
-//             <option value="Travel">Travel</option>
-//             <option value="Friends and Family">Friends and Family</option>
-//             <option value="Love">Love</option>
-//             <option value="Entertainment">Entertainment</option>
-//             <option value="Self Improvement">Self Improvement</option>
-//             <option value="Taste & Treats">Taste & Treats</option>
-//           </select>
-//           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700" >
+//           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
 //             <svg
 //               className="fill-current h-4 w-4"
 //               xmlns="http://www.w3.org/2000/svg"
@@ -123,80 +146,114 @@
 //         </div>
 //       </div>
 
-
-//       <div className="w-full h-screen" style={{ backgroundColor: "#232323" }}>
-//         <div className="container mx-auto " style={{ backgroundColor: "#232323", padding: "2%", boxShadow: "inset 5em 1em #009ce0" }}>
-//           {isEditingListName ? (
-//             <div className="flex items-center space-x-2 mb-4">
-//               <input
-//                 type="text"
-//                 className="border p-2 rounded-lg flex-grow"
-//                 placeholder="Edit list name..."
-//                 value={listName}
-//                 onChange={handleListNameChange}
-//               />
-//               <button
-//                 className="text-white px-5 py-3 rounded-lg"
-//                 style={{ backgroundColor: "#38b46c" }}
-//                 onClick={handleListNameSave}
-//               >
-//                 <FaCheck />
+//       <div className="w-full flex-grow" style={{ backgroundColor: "#232323" }}>
+//         <div
+//           className="container mx-auto p-4"
+//           style={{
+//             backgroundColor: "#232323",
+//             padding: "2%",
+//             boxShadow: "inset 5em 1em #009ce0",
+//           }}
+//         >
+//           <div className="flex items-center mb-2" >
+//             <h1 className="text-3xl font-semibold mb-4" style={{ color: "#FFFFFF" }}>
+//               Heading
+//               <button className="ml-2 text-white">
+//                 <FaPencilAlt size={"20px"} />
 //               </button>
-//             </div>
-//           ) : (
-//             <div className="flex items-center mb-4">
-//               <h1 className="text-3xl font-semibold mb-4" style={{ color: "#FFFFFF" }}>
-//                 {listName}
-//                 <button
-//                   className="ml-2 text-white"
-//                 // onClick={handleListNameEdit}
-//                 >
-//                   <FaPencilAlt size={"20px"} />
-//                 </button>
-//               </h1>
-//             </div>
-//           )}
-//           <div className="flex items-center space-x-2 mb-4">
+//             </h1>
+//           </div>
+//           <div className="flex items-center space-x-2 mb-4" >
 //             <input
 //               type="text"
 //               className="border p-2 rounded-lg flex-grow"
 //               placeholder="Add a new item..."
-//               value={newItem}
-//               onChange={(e) => setNewItem(e.target.value)}
+//             value={bucketItem}
+//             onChange={handleInputChange}
 //             />
-           
+
 //             <button
 //               className="text-white px-4 py-2 rounded-lg"
 //               style={{
 //                 backgroundColor: "#009ce0",
 //               }}
-//               onClick={addItem}
+//             onClick={handleAddItem}
 //             >
 //               Add
 //             </button>
+//             <button
+//         style={{ textAlign: "left", display: "block"}}
+//         title="This is a save button"
+//         onClick={postBucketList}><FaRegSave color='yellow' size={"30px"}/></button>
+//       <br />
 //           </div>
+//           <div style={{display:"flex" ,justifyContent:"space-between"}}>
+//           <h3 style={{color:"#fff"}} className="text-red-500">Select taget date <span>:-</span></h3>
 //           <input
-//               type="text"
-//               style={{borderRadius:"5px",padding:"3px"}}
-//               placeholder="Target date..."
-//               value={targetDate}
-//               onChange={handleTargetDateChange}
-//             />
-//           <ul style={{marginTop:"20px"}}>
-//             {bucketData[listName].map((item, index) => (
-//               <BucketItem
-//                 key={index}
-//                 item={item}
-//                 onRemove={() => removeItem(listName, index)}
-//                 onUpdate={(newTargetDate) => updateTargetDate(listName, index, newTargetDate)}
-//               />
+//             type="date"
+//             style={{ borderRadius: "5px", padding: "3px" }}
+//             placeholder="Target date..."
+//           value={targetDate}
+//           onChange={(e) => setTargetDate(e.target.value)}
+//           />
+//           </div>
+
+//           <ul className='xs:p-0 xl:p-12' style={{ marginTop: "20px"}}>
+//             {bucketList.map((item, index) => (
+
+
+
+
+
+
+//               <li className="xs:p-5 xl:p-10 flex items-center justify-between mb-2" key={item} style={{color:"#fff",border:"0.5px solid #fff", borderRadius:"5px"}}>
+//               <div>
+//                 <span dangerouslySetInnerHTML={{ __html: item }} />
+//               </div>
+//               <div className="flex items-center">
+//                 {isEditing ? (
+//                   <>
+//                     <input
+//                       type="text"
+//                       placeholder="Set target date..."
+//                       value={newTargetDate}
+//                       onChange={(e) => setNewTargetDate(e.target.value)}
+//                       className="border p-2 rounded-lg mr-2"
+//                       style={{color:"#000000"}}
+//                     />
+//                     <button
+//                       onClick={handleUpdateClick}
+//                       className="text-white bg-blue-500 px-2 py-1 rounded-lg"
+//                     >
+//                       Update
+//                     </button>
+//                   </>
+//                 ) : (
+//                   <>
+//                     <button onClick={handleEditClick} className=" mr-2 " >
+//                     <FaClock style={{color:"#009ce0"}}/>
+//                     </button>
+//                     <button onClick={() => handleRemoveItem(item)} className="text-red-500">
+//                     <FaTrash />
+//                     </button>
+//                   </>
+//                 )}
+//               </div>
+//             </li>
+
 //             ))}
+
 //           </ul>
 //         </div>
 //       </div>
+//     </div>
+
+
+
+
 //     </>
 //   );
-// }
+// };
 
 // export default Bucket;
 
@@ -217,226 +274,241 @@
 
 
 
+import React, { useState, useEffect } from 'react';
+import moment from "moment";
+import axios from 'axios';
+import Typewriter from 'react-typewriter-effect';
+import {  FaTrash, FaLockOpen, FaLock } from 'react-icons/fa';
+const Bucket = () => {
+  const [bucketItem, setBucketItem] = useState('');
+  const [bucketList, setBucketList] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [targetDate, setTargetDate] = useState("")
+  const [targetDates, setTargetDates] = useState({});
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import React, { useState } from 'react';
-import BucketItem from '../Components/BucketItem';
-import { FaPencilAlt, FaCheck } from 'react-icons/fa';
-
-function Bucket() {
-  const initialBucketData = {
-    Travel: [],
-    'Friends and Family': [],
-    Love: [],
-    Entertainment: [],
-    'Self Improvement': [],
-    'Taste & Treats': [],
+  const handleEditClick = (e) => {
+    setIsEditing(true);
   };
 
-  const [bucketData, setBucketData] = useState(initialBucketData);
-  const [listName, setListName] = useState('Travel');
-  const [newItem, setNewItem] = useState('');
-  const [targetDate, setTargetDate] = useState('');
-  const [isEditingListName, setIsEditingListName] = useState(false);
 
-  const addItem = () => {
-    if (newItem.trim() !== '') {
-      const currentDate = new Date().toLocaleString();
-      const newItemWithDate = `${newItem} (Added: ${currentDate}, Target: ${targetDate})`;
+  const handleInputChange = (e) => {
+    setBucketItem(e.target.value);
+  };
 
-      setBucketData((prevData) => ({
-        ...prevData,
-        [listName]: [...prevData[listName], newItemWithDate],
-      }));
-
-      setNewItem('');
+  const handleAddItem = () => {
+    if (bucketItem.trim() !== '') {
+      const newItem = {
+        text: bucketItem,
+        dateAdded: moment().format('DD-MM-YYYY'),
+        timeAdded: moment().format('HH:mm:ss'),
+        targetDate: targetDate,
+      };
+      setBucketList([...bucketList, newItem]);
+      setTargetDates({ ...targetDates, [bucketItem]: targetDate });
+      setBucketItem('');
       setTargetDate('');
+      setIsButtonClicked(false)
+
     }
   };
+  const handleUpdateDate = () => {
 
-  const removeItem = (category, index) => {
-    setBucketData((prevData) => ({
-      ...prevData,
-      [category]: prevData[category].filter((_, i) => i !== index),
-    }));
+  }
+
+  const handleUpdateClick = () => {
+
+
+  }
+
+  const handleRemoveItem = (item) => {
+    const updatedList = bucketList.filter((el) => el !== item);
+    setBucketList(updatedList);
+    // Make a DELETE request to remove the item from the server
+    const userId = 1;
+    const endpointUrl = `http://localhost:8080/users/${userId}`;
+    axios.get(endpointUrl)
+      .then((response) => {
+        const existingUser = response.data;
+        const updatedUser = {
+          ...existingUser,
+          bucket: updatedList,
+        };
+        return axios.put(endpointUrl, updatedUser);
+      })
+      .then((response) => {
+        console.log('Deleted List:-', response.data.bucket);
+      })
+      .catch((error) => {
+        console.error('Error updating bucket list after item removal:', error);
+      });
   };
 
-  const updateTargetDate = (category, index, newTargetDate) => {
-    setBucketData((prevData) => {
-      const updatedData = { ...prevData };
-      const item = updatedData[category][index];
-      const regex = /Target: .*?(?=\))/;
-      const updatedItem = item.replace(regex, `Target: ${newTargetDate}`);
-      updatedData[category][index] = updatedItem;
-      return updatedData;
-    });
+  const postBucketList = () => {
+    setIsButtonClicked(true);
+    const userId = 1;
+    const endpointUrl = `http://localhost:8080/users/${userId}`;
+    axios.get(endpointUrl).then((response) => {
+      const existingUser = response.data;
+      // Create the updated user object
+      const updatedUser = {
+        ...existingUser, // Copy the existing user properties
+        bucket: bucketList, // Update the bucket property with the new list
+
+      };
+
+      // Make a PUT request to update the user's data
+      return axios.put(endpointUrl, updatedUser);
+
+    })
+      .then((response) => {
+        console.log('Bucket list updated successfully:', response.data.bucket);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error('Error updating bucket list:', error);
+      });
   };
 
-  const handleListNameEdit = () => {
-    setIsEditingListName(true);
-  };
 
-  const handleListNameChange = (e) => {
-    setListName(e.target.value);
-  };
+  useEffect(() => {
 
-  const handleListNameSave = () => {
-    setIsEditingListName(false);
-  };
+    let ID = 1
+    axios.get(`http://localhost:8080/users/${ID}`).then((response) => {
 
-  const handleTargetDateChange = (e) => {
-    setTargetDate(e.target.value);
-  };
+      setBucketList(response.data.bucket)
+      // Create the updated user object
+      console.log(response.data.bucket)
 
-  const allData = JSON.stringify(bucketData, null, 2);
 
-  console.log(allData);
+    })
+      .catch((error) => {
+        // Handle error
+        console.error('Error updating bucket list:', error);
+      });
+  }, []);
+
+
 
   return (
     <>
-      <div className="flex h-auto" style={{ backgroundColor: "#58c991" }}>
-        {/*header content */}
-        <div className="xs:w-65% sm:w-65% md:w-60% lg:w-45% xl:w-40% p-4" style={{ backgroundColor: "rgb(0, 156, 224)" }}>
 
-          <h1 className="text-white xs:text-3xl md:text-6xl font-bold">My Bucket List</h1>
-          <h5></h5>
-        </div>
-
-
-
-      </div>
-
-      <div className=" p-4 w-1/1 mx-auto  shadow-md" style={{ backgroundColor: "#58c991" }}>
-        {/*select dropdown */}
-        <div className="relative">
-
-          <select
-            className="appearance-none w-full rounded border-none text-gray-700 py-3 px-4 pr-8  leading-tight focus:outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-900"
-            id="select"
-            style={{ backgroundColor: "#fff", fontWeight: "bold", boxShadow: "10px 10px 15px #555555" }}
-            value={listName}
-            onChange={handleListNameChange}
+      <div className="flex h-screen flex-col">
+        <div className="flex h-auto" style={{ backgroundColor: "#58c991" }}>
+          {/* Header content */}
+          <div
+            className="xs:w-65% sm:w-65% md:w-60% lg:w-45% xl:w-40% p-4"
+            style={{ backgroundColor: "rgb(0, 156, 224)" }}
           >
-
-            <option value="Travel">Travel</option>
-            <option value="Friends and Family">Friends and Family</option>
-            <option value="Love">Love</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Self Improvement">Self Improvement</option>
-            <option value="Taste & Treats">Taste & Treats</option>
-          </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700" >
-            <svg
-              className="fill-current h-4 w-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <h1 className="text-white xs:text-3xl md:text-6xl font-bold">My Bucket List</h1>
           </div>
         </div>
-      </div>
 
+        <div className="p-4 w-full mx-auto shadow-md" style={{ backgroundColor: "#58c991" }}>
+          {/* Select dropdown */}
+          <div className="relative">
 
-      <div className="w-full h-screen" style={{ backgroundColor: "#232323" }}>
-        <div className="container mx-auto " style={{ backgroundColor: "#232323", padding: "2%", boxShadow: "inset 5em 1em #009ce0" }}>
-          {isEditingListName ? (
-            <div className="flex items-center space-x-2 mb-4">
+          </div>
+        </div>
+
+        <div className="w-full flex-grow" style={{ backgroundColor: "#232323" }}>
+          <div
+            className="container mx-auto p-4"
+            style={{
+              backgroundColor: "#232323",
+              padding: "2%",
+              boxShadow: "inset 5em 1em #009ce0",
+            }}
+          >
+            <div className="flex items-center mb-2" >
+            <div className="text-center mt-10">
+            <h1 className="text-3xl font-semibold mb-4" style={{ color: "#FFFFFF" }}>
+               Heading
+
+             </h1>
+      
+    </div>
+            </div>
+            <div className="flex items-center space-x-2 mb-4" >
               <input
                 type="text"
                 className="border p-2 rounded-lg flex-grow"
-                placeholder="Edit list name..."
-                value={listName}
-                onChange={handleListNameChange}
+                placeholder="Add a new item..."
+                value={bucketItem}
+                onChange={handleInputChange}
               />
+
               <button
-                className="text-white px-5 py-3 rounded-lg"
-                style={{ backgroundColor: "#38b46c" }}
-                onClick={handleListNameSave}
+                className="text-white px-4 py-2 rounded-lg"
+                style={{
+                  backgroundColor: "#009ce0",
+                }}
+                onClick={handleAddItem}
               >
-                <FaCheck />
+                Add
               </button>
+              <button
+                style={{ textAlign: "left", display: "block" }}
+                title="This is a save button"
+                onClick={postBucketList}>
+                {isButtonClicked ? <FaLock color='#58c991' size={"25px"} /> : <FaLockOpen color='rgb(239 68 68 )' size={"25px"} />}
+              </button>
+              <br />
             </div>
-          ) : (
-            <div className="flex items-center mb-4">
-              <h1 className="text-3xl font-semibold mb-4" style={{ color: "#FFFFFF" }}>
-                {listName}
-                <button
-                  className="ml-2 text-white"
-                // onClick={handleListNameEdit}
-                >
-                  <FaPencilAlt size={"20px"} />
-                </button>
-              </h1>
-            </div>
-          )}
-          <div className="flex items-center space-x-2 mb-4">
-            <input
-              type="text"
-              className="border p-2 rounded-lg flex-grow"
-              placeholder="Add a new item..."
-              value={newItem}
-              onChange={(e) => setNewItem(e.target.value)}
-            />
-           
-            <button
-              className="text-white px-4 py-2 rounded-lg"
-              style={{
-                backgroundColor: "#009ce0",
-              }}
-              onClick={addItem}
-            >
-              Add
-            </button>
-          </div>
-          <input
-              type="text"
-              style={{borderRadius:"5px",padding:"3px"}}
-              placeholder="Target date..."
-              value={targetDate}
-              onChange={handleTargetDateChange}
-            />
-          <ul style={{marginTop:"20px"}}>
-            {bucketData[listName].map((item, index) => (
-              <BucketItem
-                key={index}
-                item={item}
-                onRemove={() => removeItem(listName, index)}
-                onUpdate={(newTargetDate) => updateTargetDate(listName, index, newTargetDate)}
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <h3 style={{ color: "#fff" }} className="text-red-500">Select taget date <span>:-</span></h3>
+              <input
+                type="date"
+                style={{ borderRadius: "5px", padding: "3px" }}
+                placeholder="Target date..."
+                value={targetDate}
+                onChange={(e) => setTargetDate(e.target.value)}
               />
-            ))}
-          </ul>
+            </div>
+
+            <ul className='xs:p-0 xl:p-12' style={{ marginTop: "20px" }}>
+              {bucketList.map((item, index) => (
+
+
+
+
+
+
+                <li className="xs:p-5 xl:p-10 flex items-center justify-between mb-2" key={item.text} style={{ color: "#fff", border: "0.5px solid #fff", borderRadius: "8px" }}>
+                  <div>
+                    <span className='xs:text-xl xl:text-3xl' style={{ color: "#fff" }} dangerouslySetInnerHTML={{ __html: item.text }} />
+                    <br />
+                    <small className='xs:text-xs xl:text-xs' style={{ color: "#fff" }} >Date Added: <span style={{ color: "#58c991" }}>{item.dateAdded}</span></small>
+                    <br />
+                    <small className='xs:text-xs xl:text-xs' style={{ color: "#fff" }} >Time Added: <span style={{ color: "#58c991" }}>{item.timeAdded}</span></small>
+                    <br />
+                    <small className='xs:text-xs xl:text-xs' style={{ color: "#fff" }} >Target Date: <span style={{ color: "#58c991" }}>{item.targetDate}</span></small>
+                  </div>
+                  <div className="flex items-center">
+                    
+                        <button onClick={() => handleRemoveItem(item)} className="text-red-500">
+                          <FaTrash />
+                        </button>
+              
+                  </div>
+                </li>
+
+              ))}
+
+            </ul>
+          </div>
         </div>
       </div>
+
+
+
+
     </>
   );
-}
+};
 
 export default Bucket;

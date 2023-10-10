@@ -3,100 +3,16 @@
     {
       "fullName": "Harsh Sharma",
       "email": "harshsharmaktm03@gmail.com",
-      "password": "000000",
-      "id": 1,
-      "bucket": {
-        "Travel": [
-          {
-            "id": 1,
-            "title": "Travel item 1",
-            "createdAt": "2023-10-01T08:00:00",
-            "targetDate": null
-          },
-          {
-            "id": 2,
-            "title": "Travel item 2",
-            "createdAt": "2023-10-02T09:15:00",
-            "targetDate": null
-          }
-        ],
-        "Friends and Family": [
-          {
-            "id": 1,
-            "title": "Travel item 1",
-            "createdAt": "2023-10-01T08:00:00",
-            "targetDate": null
-          },
-          {
-            "id": 2,
-            "title": "Travel item 2",
-            "createdAt": "2023-10-02T09:15:00",
-            "targetDate": null
-          }
-        ],
-        "Love": [
-          {
-            "id": 1,
-            "title": "Travel item 1",
-            "createdAt": "2023-10-01T08:00:00",
-            "targetDate": null
-          },
-          {
-            "id": 2,
-            "title": "Travel item 2",
-            "createdAt": "2023-10-02T09:15:00",
-            "targetDate": null
-          }
-        ],
-        "Entertainment": [
-          {
-            "id": 1,
-            "title": "Travel item 1",
-            "createdAt": "2023-10-01T08:00:00",
-            "targetDate": null
-          },
-          {
-            "id": 2,
-            "title": "Travel item 2",
-            "createdAt": "2023-10-02T09:15:00",
-            "targetDate": null
-          }
-        ],
-        "Self Improvement": [
-          {
-            "id": 1,
-            "title": "Travel item 1",
-            "createdAt": "2023-10-01T08:00:00",
-            "targetDate": null
-          },
-          {
-            "id": 2,
-            "title": "Travel item 2",
-            "createdAt": "2023-10-02T09:15:00",
-            "targetDate": null
-          }
-        ],
-        "Taste & Treats": [
-          {
-            "id": 1,
-            "title": "Travel item 1",
-            "createdAt": "2023-10-01T08:00:00",
-            "targetDate": null
-          },
-          {
-            "id": 2,
-            "title": "",
-            "createdAt": "",
-            "targetDate": null
-          }
-        ]
-      }
-    },
-    {
-      "fullName": "abc",
-      "email": "abc@gmail.com",
       "password": "123",
-      "id": 2
+      "bucket": [
+        {
+          "text": "seewrgvsfhgf",
+          "dateAdded": "10-10-2023",
+          "timeAdded": "14:14:56",
+          "targetDate": "2023-10-22"
+        }
+      ],
+      "id": 1
     }
   ]
 }

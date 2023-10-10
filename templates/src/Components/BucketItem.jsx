@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaClock, FaTrash } from 'react-icons/fa'; 
 
-function BucketItem({ item, onRemove, onUpdate }) {
+function BucketItem({ item, onRemove, targetDate, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newTargetDate, setNewTargetDate] = useState('');
 

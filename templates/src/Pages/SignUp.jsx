@@ -125,6 +125,8 @@ function SignUp() {
     fullName: '',
     email: emailFromParams,
     password: '',
+    bucket : [],
+    
   });
   const [alertMessage, setAlertMessage] = useState('');
 
@@ -237,3 +239,99 @@ function SignUp() {
 }
 
 export default SignUp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// "bucket": {
+//   "Travel": [
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     },
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     }
+//   ],
+//   "Friends and Family": [
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     },
+//     {
+//       "title": "Travel item 2",
+//       "createdAt": "2023-10-02T09:15:00",
+//       "targetDate": null
+//     }
+//   ],
+//   "Love": [
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     },
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     }
+//   ],
+//   "Entertainment": [
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     },
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     }
+//   ],
+//   "Self Improvement": [
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     },
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     }
+//   ],
+//   "Taste & Treats": [
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     },
+//     {
+//       "title": "",
+//       "createdAt": "",
+//       "targetDate": null
+//     }
+//   ]
+// }
