@@ -146,14 +146,14 @@ function SignUp() {
 
     try {
       // Check if the email already exists in the database
-      const existingUser = await axios.get(`http://localhost:8080/users?email=${formData.email}`);
+      const existingUser = await axios.get(`https://harsh-bucket.onrender.com/users?email=${formData.email}`);
 
       if (existingUser.data.length > 0) {
         // If the email exists, show a custom alert message
         setAlertMessage("You can't use the same email to create multiple accounts.");
       } else {
         // If the email is not found, proceed to create the user
-        const response = await axios.post('http://localhost:8080/users', formData);
+        const response = await axios.post('https://harsh-bucket.onrender.com/users', formData);
 
         // Assuming your server responds with the newly created user, you can handle success here.
         console.log('User created:', response.data);

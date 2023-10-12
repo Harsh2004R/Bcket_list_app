@@ -9,18 +9,18 @@ function ValidEmail() {
 
   const checkEmailValidity = async () => {
     try {
-      // Abstract API key
-      const apiKey = '39ccf8a027da49c4a864da06caf0d4ec';
-      // Make a GET request to the Abstract API
+      // Zerobounce API key
+      const apiKey = '4916734cd21b4bff9f4f2ba00a9b8661';
+      // Make a GET request to the Zerobounce API
       const response = await fetch(
-        `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${email}`
+        `https://api.zerobounce.net/v2/validate?api_key=${apiKey}&email=${email}`
       );
 
       const data = await response.json();
 
       // Display both the message and the JSON response
-      setResult({
-        message: data.deliverability === 'UNDELIVERABLE' ? `Email ${email} does not exist` : `Email ${email} exists`,
+            setResult({
+        message: data.status === 'valid' ? `Email ${email} is valid` : `Email ${email} is invalid`,
         data: JSON.stringify(data, null, 2),
       });
 
@@ -28,9 +28,9 @@ function ValidEmail() {
       setResult({ message: 'An error occurred while checking the email.', data: null });
     }
   };
-
-  // Determine if the "Sign Up" button should be enabled
-  const isButtonEnabled = email !== '' && result.message === `Email ${email} exists`;
+  
+  // "Sign Up" button should be enabled or disable checking here...
+  const isButtonEnabled = email !== '' && result.message === `Email ${email} is valid` || "An error occurred while checking the email.";
 
   const handleSignUpPage = () => {
     navigate(`/signup?email=${encodeURIComponent(email)}`);
@@ -59,12 +59,6 @@ function ValidEmail() {
           </button>
           <div className="border  transition-transform duration-1000 hover:cursor-pointer w-90 md:w-58 h-60vh md:h-60.5vh overflow-auto p-4 bg-gray-1000 rounded-none scrollbar-thin scrollbar-thumb-red scrollbar-track-gray" style={{ border: "0.5px solid #fff", borderRadius: "15px" }}>
             <h2 className="text-center text-white">Result <span className="text-red-500">?</span></h2>
-
-            {/* {isButtonEnabled ? (
-              <p className="text-white py-2" style={{ fontSize: "20px", textAlign: "center", color: "#0693e3" }}>Scroll down for signup...</p>
-            ) : (
-              <p className="hidden"></p>
-            )} */}
             <p className="text-white">{result.message}</p>
             <p className="whitespace-pre-wrap" style={{ color: "cyan" }}>{result.data}</p>
             <div className="flex justify-center">

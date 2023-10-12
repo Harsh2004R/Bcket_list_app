@@ -19,7 +19,8 @@ function Login() {
 
      if (filteredUser) {
        if (filteredUser.password === password) {
-         navigate(`/bucket?email=${encodeURIComponent(email)}`);
+        const userId = filteredUser.id;
+         navigate(`/bucket?action=${encodeURIComponent(userId)}`);
        } else {
         setAlertMessage('Incorrect password');
        }
@@ -30,7 +31,7 @@ function Login() {
 
   const fetchUserData = async () => {
     try {
-      const response = await Axios.get('http://localhost:8080/users');
+      const response = await Axios.get('https://harsh-bucket.onrender.com/users');
       setUserData(response.data);
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -40,7 +41,6 @@ function Login() {
   useEffect(() => {
     fetchUserData(); 
   }, []);
-  console.log(userData)
  
   return (
     <>

@@ -5,6 +5,7 @@ import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import Bucket from '../Pages/Bucket';
 import ValidEmail from '../Components/ValidEmail';
+import HowItWorksVideo from '../Components/HowItWorksVideo';
 function Allroutes() {
   return (
     <div>
@@ -14,6 +15,7 @@ function Allroutes() {
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/bucket" element={<Bucket />}></Route>
         <Route path="/email_valid?" element={<ValidEmail />}></Route>
+        <Route path="/how-it-works" element={<HowItWorksVideo />}></Route>
       </Routes>
     </div>
   )

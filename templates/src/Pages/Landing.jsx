@@ -9,9 +9,18 @@ function Landing() {
         <p className="text-xs sm:text-lg md:textlg lg:text-lg xl:text-lg text-justify text-white mb-3" >
           Explore your dreams, set your goals, and start ticking off your bucket list items.
         </p>
-        <p className="text-lg text-right  mb-3" style={{fontSize:"12px",color:"#999"}}>
+        <div style={{display:"flex",justifyContent:"space-between"}}>
+        <Link
+        to="/how-it-works"
+        className="text-lg mb-3"
+        style={{ fontSize: "12px", color: "#3B82F6" ,textDecoration:"underline"}}
+      >
+        How it works
+      </Link>
+        <p className="text-lg   mb-3" style={{fontSize:"12px",color:"#999"}}>
           -by Harsh Sharma
         </p>
+        </div>
         <div className="flex justify-center">
           <Link
             to="/login"

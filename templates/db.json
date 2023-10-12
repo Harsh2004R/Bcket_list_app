@@ -6,13 +6,26 @@
       "password": "123",
       "bucket": [
         {
-          "text": "seewrgvsfhgf",
-          "dateAdded": "10-10-2023",
-          "timeAdded": "14:14:56",
-          "targetDate": "2023-10-22"
+          "text": "dfxbvcdfbdbdbf",
+          "dateAdded": "11-10-2023",
+          "timeAdded": "12:56:55",
+          "targetDate": "23-10-2023",
+          "itemStyle": {
+            "border": "0.5px solid #FFFFFF",
+            "color": "#000000",
+            "borderRadius": "8px"
+          },
+          "isTargetDateExpired": false
+        },
+        {
+          "text": "dfhgdfhdfhd",
+          "dateAdded": "11-10-2023",
+          "timeAdded": "12:57:40",
+          "targetDate": "10-09-2023"
         }
       ],
       "id": 1
     }
+    
   ]
 }
