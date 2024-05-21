@@ -34,7 +34,7 @@ function SignUp() {
 
     try {
 
-      const response = await axios.post('http://localhost:4000/users/register', formData);
+      const response = await axios.post('https://bucket-be2k24.onrender.com/users/register', formData);
 
       // Assuming your server responds with the newly created user
       console.log('User created:', response.data);
