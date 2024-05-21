@@ -29,7 +29,7 @@ function Landing() {
             Log In
           </Link>
           <Link
-            to="/email_valid?" 
+            to="/signup" 
             className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition duration-300"
           >
             Sign Up

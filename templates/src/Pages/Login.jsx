@@ -7,6 +7,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
 
+
   // Create the object with the user data
   const userData = {
     email: email,
@@ -22,9 +23,11 @@ function Login() {
       console.log('Response from server:', response.data); // Log the response
 
       if (response.data.token) {
-        console.log('Login successful, token received:', response.data.token); // Log the token
+        const userID = response.data.userId
+        // console.log('Login successful, token received:', response.data.token, "userID", response.data.userId); // Log the token
+        console.log("login successful")
         // Navigate to a different page upon successful login
-        navigate('/bucket');
+        navigate(`/bucket/${userID}`);
       } else {
         console.log('Login failed, response data:', response.data); // Log failure case
         setAlertMessage(response.data.msg || 'Login failed');

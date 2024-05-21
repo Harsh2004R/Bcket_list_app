@@ -10,7 +10,7 @@ function SignUp() {
   const emailFromParams = searchParams.get('email') || '';
   const [formData, setFormData] = useState({
     fullName: '',
-    email: emailFromParams,
+    email: '',
     password: '',
     bucket: [],
 
@@ -33,7 +33,7 @@ function SignUp() {
     e.preventDefault();
 
     try {
-    
+
       const response = await axios.post('http://localhost:4000/users/register', formData);
 
       // Assuming your server responds with the newly created user
@@ -43,7 +43,7 @@ function SignUp() {
       setAlertMessage('Congratulations! Your account has been created.');
 
     } catch (error) {
-        // Handle error here
+      // Handle error here
       console.error('Error creating user:', error);
     }
   };
