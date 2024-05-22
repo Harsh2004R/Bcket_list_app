@@ -24,7 +24,7 @@ Check out a demo of the app [here](https://drive.google.com/file/d/1GHsjHRBH6jyM
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/YourUsername/bucketlist-app.git
+   git clone https://github.com/harsh2004R/bucketlist-app.git
    cd bucketlist-app
 
 
