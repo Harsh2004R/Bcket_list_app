@@ -15,7 +15,8 @@ const Bucket = () => {
   const searchParams = new URLSearchParams(location.search);
   const spect = searchParams.get('action') || '';
   const { userID } = useParams();
-  console.log('userID:', userID);;
+  // console.log('userID:', userID);;
+  console.log('userID: valid',);;
 
 
 

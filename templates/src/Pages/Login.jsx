@@ -20,7 +20,8 @@ function Login() {
 
     try {
       const response = await axios.post('https://bucket-be2k24.onrender.com/users/login', userData);
-      console.log('Response from server:', response.data); // Log the response
+       // Log the response
+      // console.log('Response from server:', response.data);
 
       if (response.data.token) {
         const userID = response.data.userId
